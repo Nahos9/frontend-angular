@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+                       
+                <!-------------      image     ------------->
+                
+                <div class="text">
+                    <p>OKOUME CONSULTING</p>
+                </div>
+                
+            </div>
+            <div class="col-md-6 right">
+                
+              <form  [formGroup]="formLogin" (submit)="handleLogin()">
+                <div class="input-box">
+                   
+                    <header>Connexion</header>
+                    <div class="input-field">
+                         <input type="text" class="input" id="email" required="" autocomplete="off" formControlName="name">
+                         <label for="email">Email</label> 
+                     </div> 
+                    <div class="input-field">
+                         <input type="password" class="input" id="pass" required="" formControlName="password">
+                         <label for="pass">Password</label>
+                     </div> 
+                    <div class="input-field">
+                         
+                         <input type="submit" class="submit" value="Connexion">
+                    </div> 
+                    <div class="signin">
+                     <span>Mot de passe oublié clic <a href="#">ici</a></span>
+                    </div>
+                 </div>  
+              </form>
+            </div>
+        </div>
+    </div>
+</div>

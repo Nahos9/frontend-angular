@@ -1,0 +1,36 @@
+.home-content p{
+    color: orange;
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+}
+.pie{
+    height: 150px !important;
+    background: green;
+    position: relative;
+}
+.line{
+    height: 150px !important;
+    background: #743ae1;;
+    position: relative;
+}
+.bar{
+    height: 150px !important;
+    background: orange;
+    position: relative;
+}
+
+.charts p{
+    color: white !important;
+}
+.charts i{
+    position: absolute !important;
+    right: 10%;
+    font-size: 1.7rem;
+    top: 70%;
+    color: white;
+}
+.charts .chiffre{
+    font-size: 1.8rem !important;
+    position: absolute;
+    left: 50%;
+}
