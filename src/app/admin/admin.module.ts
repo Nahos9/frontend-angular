@@ -21,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     FormationsComponent,
     CertificationsComponent,
     TopbarComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     CommonModule,

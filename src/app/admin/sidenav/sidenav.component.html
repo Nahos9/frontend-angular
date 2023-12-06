@@ -4,6 +4,6 @@
 
     <ul>
         <li *ngFor="let nav of navs" routerLink="{{nav.route}}"  (clic)="setCurrentAction(nav)" [class]="nav==currentAction? 'color-success':''"><i class="{{nav.icon}} px-1"></i> {{nav.libelle}}</li>
-        <li><i class="bi bi-box-arrow-in-left"></i> Logout</li>
+        <li (click)="handleLogout()"><i class="bi bi-box-arrow-in-left"></i> Logout</li>
     </ul>
 </div>

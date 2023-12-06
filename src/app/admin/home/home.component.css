@@ -3,34 +3,49 @@
     font-size: 1.2rem !important;
     font-weight: 500 !important;
 }
-.pie{
+.card1{
     height: 150px !important;
     background: green;
     position: relative;
 }
-.line{
+.card2{
     height: 150px !important;
     background: #743ae1;;
     position: relative;
 }
-.bar{
+.card3{
     height: 150px !important;
     background: orange;
     position: relative;
 }
 
-.charts p{
+.cards p{
     color: white !important;
 }
-.charts i{
+.cards i{
     position: absolute !important;
     right: 10%;
     font-size: 1.7rem;
     top: 70%;
     color: white;
 }
-.charts .chiffre{
+.cards .chiffre{
     font-size: 1.8rem !important;
     position: absolute;
     left: 50%;
 }
+
+/******** CHARTS ******/
+.charts .doug{
+    height: 350px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+.charts .line{
+    height: 350px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+.charts .bar{
+    height: 350px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+

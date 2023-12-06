@@ -1,20 +1,31 @@
 <div class="home-content p-2">
     <p>Tableau de bord</p>
-    <div class="charts row justify-content-around mx-0 ">
-        <div class="col-md-3 pie">
+    <div class="cards row justify-content-around mx-0 ">
+        <div class="col-md-3 card1">
             <p class="titre-cert">Certifications</p>
             <p class="chiffre">1</p>
             <i class="bi bi-people-fill"></i>
         </div>
-        <div class="col-md-3 line">
+        <div class="col-md-3 card2">
             <p class="titre-cli"> Clients</p>
             <p class="chiffre">3</p>
             <i class="bi bi-people-fill"></i>
         </div>
-        <div class="col-md-3 bar">
+        <div class="col-md-3 card3">
             <p class="titre-for">Formations</p>
             <p class="chiffre">9</p>
             <i class="bi bi-stack"></i>
+        </div>
+    </div>
+    <div class="charts row justify-content-around items-align-center mx-0 mt-5 p-3">
+        <div class="col-md-4 doug">
+            <canvas id="canvas2">{{chartDoug}}</canvas>
+        </div>
+        <div class="col-md-4 line">
+            <canvas id="canvas1">{{chartLine}}</canvas>
+        </div>
+        <div class="col-md-4 bar">
+            <canvas id="canvas">{{chart}}</canvas>
         </div>
     </div>
 </div>

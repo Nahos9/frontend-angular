@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -13,9 +14,9 @@ export class AuthService {
   isAuthenticated :boolean = false
   roles : any;
   username! : any
-  access_token!: string;
+  access_token!: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   
   public login(username:string,paswword:string)
@@ -32,17 +33,22 @@ export class AuthService {
     }),
   };
   
-
     return this.http.post(`${this.BASE_URL}auth/login`,params,httpOptions)
   }
 
   loadProfile(data:any)
   {
     this.isAuthenticated = true
-
     this.access_token = data['access-token']
     let decodeJwt = jwtDecode(this.access_token)
     this.username = decodeJwt.sub;
-   
+  }
+  logout()
+  {
+    this.isAuthenticated = false
+    this.access_token = undefined
+    this.username = undefined
+
+    this.router.navigate(["/login"])
   }
 }

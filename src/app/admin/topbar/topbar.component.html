@@ -4,9 +4,15 @@
     </div>
     <div class="col-md-6 d-flex justify-content-end items-align-center ">
         <div class="">
-            <i class="bi bi-envelope"></i>
-        <i class="bi bi-person"></i>
-        <i class="bi bi-gear"></i>
+            <i class="bi bi-person dropdown-toggle " id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item text-black" >{{this.authService.username}}</a></li>
+                  </ul>
+            </i>
+        <i class="bi bi-envelope"></i>
+        <i class="bi bi-gear ">
+
+        </i>
         </div>
     </div>
 </div>

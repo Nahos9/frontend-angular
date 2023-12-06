@@ -8,6 +8,7 @@ import { CertificationsComponent } from './certifications/certifications.compone
 import { AuthenticationGuard } from '../gaurds/authentication.guard';
 import { HomeComponent } from './home/home.component';
 
+
 const routes: Routes = [
   { path: '', component: AdminComponent,children:[
     {path:'',component:HomeComponent},
