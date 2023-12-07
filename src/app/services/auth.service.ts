@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +17,7 @@ export class AuthService {
   roles : any;
   username! : any
   access_token!: any;
+ 
 
   constructor(private http:HttpClient,private router:Router) { }
 
@@ -41,7 +44,7 @@ export class AuthService {
     this.isAuthenticated = true
     this.access_token = data['access-token']
     let decodeJwt = jwtDecode(this.access_token)
-    this.username = decodeJwt.sub;
+    this.username = decodeJwt.sub
   }
   logout()
   {

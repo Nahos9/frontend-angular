@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   formLogin!: FormGroup
-
+  access_token :any = undefined
+  username! : any
   constructor(private fb:FormBuilder,private loginService:AuthService,private router:Router) { }
 
   ngOnInit(){
@@ -30,6 +32,18 @@ export class LoginComponent implements OnInit {
    .subscribe({
     next : data=>{
       
+      this.access_token = data
+      
+      let token = data as any
+
+      let decodeJwt = jwtDecode(token['access-token'])
+      
+      this.username = decodeJwt.sub
+
+
+      sessionStorage.setItem("access_token",this.access_token["access-token"])
+      sessionStorage.setItem("username",this.username)
+
      this.loginService.loadProfile(data)
      this.router.navigate(["/admin"])
      

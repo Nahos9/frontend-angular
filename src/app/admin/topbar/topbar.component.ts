@@ -12,7 +12,7 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.authService.username)
+    
   }
 
 }
