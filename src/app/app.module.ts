@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,8 +18,9 @@ import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
+
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AppHttpInterceptor,multi:true}
   ],

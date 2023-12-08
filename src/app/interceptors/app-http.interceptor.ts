@@ -20,7 +20,9 @@ export class AppHttpInterceptor implements HttpInterceptor {
     {
       let newReq = request.clone(
         {headers : request.headers.set('Authorization','Bearer '+this.token)}
-      )
+        )
+        console.log(this.token)
+     
       return next.handle(newReq);
     }else{
       return next.handle(request);

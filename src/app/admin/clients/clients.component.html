@@ -6,7 +6,7 @@
                 <input type="text" placeholder="Rechercher">
                 <i class="bi bi-search"></i>
             </div>
-            <button class="btn btn-outline-info">Ajouter <i class="bi bi-person-add"></i> </button>
+            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter <i class="bi bi-person-add"></i> </button>
         </div>
         <div class="card-body">
             <table class="table">
@@ -21,7 +21,69 @@
                     <th>Job</th>
                     <th>Actions</th>
                 </tr>
+                <tr *ngFor="let client of clients">
+                    <td class="p-2">{{client.clientId}}</td>
+                    <td class="p-2">{{client.firstname}}</td>
+                    <td class="p-2">{{client.lastname}}</td>
+                    <td class="p-2">{{client.email}}</td>
+                    <td class="p-2">{{client.pays}}</td>
+                    <td class="p-2">{{client.ville}}</td>
+                    <td class="p-2">{{client.phone}}</td>
+                    <td class="p-2">{{client.job}}</td>
+                    <td>
+                        <i class="bi bi-eye"></i>
+                        <i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-trash"></i>
+                    </td>
+                </tr>
             </table>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Ajouter un client</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form (submit)="handleSubmit()"  [formGroup]="formClient" >
+                        <div class="mb-3">
+                            <label for="firstname">Firstname</label>
+                            <input type="text" id="firstname" class="form-control" formControlName="firstname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastname">Lastname</label>
+                            <input type="text" id="lastname" class="form-control" formControlName="lastname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" formControlName="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="country">Pays</label>
+                            <input type="pays" id="pays" class="form-control" formControlName="pays">
+                        </div>
+                        <div class="mb-3">
+                            <label for="city">Ville</label>
+                            <input type="ville" id="ville" class="form-control" formControlName="ville">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone">Téléphone</label>
+                            <input type="phone" id="phone" class="form-control" formControlName="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="job">Profession</label>
+                            <input type="job" id="job" class="form-control" formControlName="job">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-danger">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                          </div>
+                      </form>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
 </div>

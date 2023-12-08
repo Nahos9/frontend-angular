@@ -10,6 +10,8 @@ import { FormationsComponent } from './formations/formations.component';
 import { CertificationsComponent } from './certifications/certifications.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
