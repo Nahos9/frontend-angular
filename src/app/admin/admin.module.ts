@@ -11,6 +11,7 @@ import { CertificationsComponent } from './certifications/certifications.compone
 import { TopbarComponent } from './topbar/topbar.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeComponent } from './employe/employe.component';
 
 
 
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CertificationsComponent,
     TopbarComponent,
     HomeComponent,
+    EmployeComponent,
 
   ],
   imports: [

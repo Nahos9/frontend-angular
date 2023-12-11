@@ -1,0 +1,64 @@
+<div class="row m-5">
+    <div class="col-md-5">
+        <form (submit)="handleSubmit()"  [formGroup]="employeForm" >
+            <div class="mb-3">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" class="form-control" name="firstname" formControlName="firstname" >
+            </div>
+            <div class="mb-3">
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" class="form-control" name="lastname" formControlName="lastname" >
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="email" formControlName="email" >
+            </div>
+            <div class="mb-3">
+                <label for="country">Pays</label>
+                <input type="pays" id="pays" class="form-control" name="pays" formControlName="pays" >
+            </div>
+            <div class="mb-3">
+                <label for="city">Ville</label>
+                <input type="ville" id="ville" class="form-control" name="ville" formControlName="ville" >
+            </div>
+            <div class="mb-3">
+                <label for="phone">Téléphone</label>
+                <input type="phone" id="phone" class="form-control" name="phone" formControlName="phone" >
+            </div>
+            <div class="mb-3">
+                <label for="job">Profession</label>
+                <input type="job" id="job" class="form-control" name="job" formControlName="job" >
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-danger">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+              </div>
+          </form>
+    </div>
+    <!---
+    
+      <form (submit)="handleSubmit()" class="form" [formGroup]="employeForm">
+            <div class="mb-2">
+                <input type="text" class="form-control" formControlName="firstname">
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" formControlName="lastname">
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" formControlName="pays">
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" formControlName="ville">
+            </div>  <div class="mb-2">
+                <input type="text" class="form-control" formControlName="job">
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control"  formControlName="phone">
+            </div>
+            <button class="btn btn-info">Post</button>
+        </form>
+    -->
+</div>

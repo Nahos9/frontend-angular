@@ -11,29 +11,29 @@
         <div class="card-body">
             <table class="table">
                 <tr>
-                    <th>ID</th>
-                    <th>FisrtName</th>
-                    <th>LastName</th>
-                    <th>Email</th>
-                    <th>Country</th>
-                    <th>City</th>
-                    <th>Phone</th>
-                    <th>Job</th>
-                    <th>Actions</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">FisrtName</th>
+                    <th class="text-center">LastName</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Country</th>
+                    <th class="text-center">City</th>
+                    <th class="text-center">Phone</th>
+                    <th class="text-center">Job</th>
+                    <th class="text-center">Actions</th>
                 </tr>
                 <tr *ngFor="let client of clients">
-                    <td class="p-2">{{client.clientId}}</td>
-                    <td class="p-2">{{client.firstname}}</td>
-                    <td class="p-2">{{client.lastname}}</td>
-                    <td class="p-2">{{client.email}}</td>
-                    <td class="p-2">{{client.pays}}</td>
-                    <td class="p-2">{{client.ville}}</td>
-                    <td class="p-2">{{client.phone}}</td>
-                    <td class="p-2">{{client.job}}</td>
-                    <td>
-                        <i class="bi bi-eye"></i>
-                        <i class="bi bi-pencil-square"></i>
-                        <i class="bi bi-trash"></i>
+                    <td class="p-2 text-center">{{client.id}}</td>
+                    <td class="p-2 text-center">{{client.firstname}}</td>
+                    <td class="p-2 text-center">{{client.lastname}}</td>
+                    <td class="p-2 text-center">{{client.email}}</td>
+                    <td class="p-2 text-center">{{client.pays}}</td>
+                    <td class="p-2 text-center">{{client.ville}}</td>
+                    <td class="p-2 text-center">{{client.phone}}</td>
+                    <td class="p-2 text-center">{{client.job}}</td>
+                    <td class="text-center">
+                        <i class="bi bi-eye p-2" data-bs-toggle="modal" data-bs-target="#editleModal" (click)="editClient(client)"></i>
+                        <i class="bi bi-pencil-square p-2"></i>
+                        <i class="bi bi-trash p-2"></i>
                     </td>
                 </tr>
             </table>
@@ -42,40 +42,87 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">Ajouter un client</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
                     <div class="modal-body">
                       <form (submit)="handleSubmit()"  [formGroup]="formClient" >
                         <div class="mb-3">
                             <label for="firstname">Firstname</label>
-                            <input type="text" id="firstname" class="form-control" formControlName="firstname">
+                            <input type="text" id="firstname" class="form-control" name="firstname" formControlName="firstname" >
                         </div>
                         <div class="mb-3">
                             <label for="lastname">Lastname</label>
-                            <input type="text" id="lastname" class="form-control" formControlName="lastname">
+                            <input type="text" id="lastname" class="form-control" name="lastname" formControlName="lastname" >
                         </div>
                         <div class="mb-3">
                             <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" formControlName="email">
+                            <input type="email" id="email" class="form-control" name="email" formControlName="email" >
                         </div>
                         <div class="mb-3">
                             <label for="country">Pays</label>
-                            <input type="pays" id="pays" class="form-control" formControlName="pays">
+                            <input type="pays" id="pays" class="form-control" name="pays" formControlName="pays" >
                         </div>
                         <div class="mb-3">
                             <label for="city">Ville</label>
-                            <input type="ville" id="ville" class="form-control" formControlName="ville">
+                            <input type="ville" id="ville" class="form-control" name="ville" formControlName="ville" >
                         </div>
                         <div class="mb-3">
                             <label for="phone">Téléphone</label>
-                            <input type="phone" id="phone" class="form-control" formControlName="phone">
+                            <input type="phone" id="phone" class="form-control" name="phone" formControlName="phone" >
                         </div>
                         <div class="mb-3">
                             <label for="job">Profession</label>
-                            <input type="job" id="job" class="form-control" formControlName="job">
+                            <input type="job" id="job" class="form-control" name="job" formControlName="job" >
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-danger">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                          </div>
+                      </form>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="editleModal" tabindex="-1" aria-labelledby="editleModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modifier un client</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form (submit)="handleUpadet(formClient)"  [formGroup]="formClient" >
+                        <div class="mb-3">
+                            <label for="firstname">Firstname</label>
+                            <input type="text" id="firstname" class="form-control" name="firstname" formControlName="firstname" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastname">Lastname</label>
+                            <input type="text" id="lastname" class="form-control" name="lastname" formControlName="lastname" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" name="email" formControlName="email" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="country">Pays</label>
+                            <input type="pays" id="pays" class="form-control" name="pays" formControlName="pays" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="city">Ville</label>
+                            <input type="ville" id="ville" class="form-control" name="ville" formControlName="ville" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone">Téléphone</label>
+                            <input type="phone" id="phone" class="form-control" name="phone" formControlName="phone" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="job">Profession</label>
+                            <input type="job" id="job" class="form-control" name="job" formControlName="job" >
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-bs-dismiss="modal" class="btn btn-danger">Annuler</button>
                             <button type="submit" class="btn btn-primary">Enregistrer</button>
                           </div>
                       </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ClientsComponent implements OnInit {
   access_token : any =undefined
   formClient! : FormGroup 
 
-  constructor(private clientService:ClientService,private fb:FormBuilder) { }
+  constructor(private clientService:ClientService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
     this.handleGetClients()
@@ -35,7 +36,7 @@ export class ClientsComponent implements OnInit {
     this.clientService.getAllClient()
     .subscribe({
       next:data=>{
-        this.clients = data
+        this.clients = data.reverse()
       },error:error=>{
         console.log(error)
       }
@@ -45,11 +46,41 @@ export class ClientsComponent implements OnInit {
   handleSubmit()
   {
   
-
+    document.getElementById('close-modal')?.click()
     this.clientService.saveClient(this.formClient.value)
     .subscribe({
       next:resp=>{
        console.log(resp)
+       this.formClient.reset
+       
+       this.handleGetClients()
+      },error:error=>{
+        console.log(error)
+      }
+    })
+  }
+
+  editClient(client:any)
+  {
+    this.formClient = this.fb.group(
+      {
+        firstname:this.fb.control(client.firstname),
+        lastname:this.fb.control(client.lastname),
+        email:this.fb.control(client.email),
+        pays:this.fb.control(client.pays),
+        ville:this.fb.control(client.ville),
+        phone:this.fb.control(client.phone),
+        job:this.fb.control(client.job),
+      }
+    )
+  }
+
+  handleUpadet(client:any)
+  {
+    this.clientService.updateClient(client)
+    .subscribe({
+      next:resp=>{
+        console.log(resp)
       },error:error=>{
         console.log(error)
       }

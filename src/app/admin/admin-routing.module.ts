@@ -7,6 +7,7 @@ import { FormationsComponent } from './formations/formations.component';
 import { CertificationsComponent } from './certifications/certifications.component';
 import { AuthenticationGuard } from '../gaurds/authentication.guard';
 import { HomeComponent } from './home/home.component';
+import { EmployeComponent } from './employe/employe.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path:'clients',component:ClientsComponent},
     {path:'partenaires',component:PartenairesComponent},
     {path:'formations',component:FormationsComponent},
-    {path:'certifications',component:CertificationsComponent}
+    {path:'certifications',component:CertificationsComponent},
+    {path:'employes',component:EmployeComponent}
   ] }
 
 ];
