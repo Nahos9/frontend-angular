@@ -17,6 +17,7 @@ export class ClientService {
   {
     return this.http.get<any>(`${this.URL}clients`)
   }
+  
   saveClient(client:any):Observable<any>{
     console.log("service",client)
     return this.http.post(`${this.URL}employe`,client)
@@ -29,8 +30,15 @@ export class ClientService {
     return this.http.post(`${this.URL}employe`,emp)
   }
 
-  updateClient(emp:any):Observable<any>
+  updateClient(clientId:number,emp:any):Observable<any>
   {
-    return this.http.put(`${this.URL}clients`,emp)
+    return this.http.put(`${this.URL}clients/${clientId}`,emp)
   }
+
+  getOneClient(id:number):Observable<any>
+  {
+    return this.http.get(`${this.URL}clients/${id}`)
+  }
+
+ 
 }

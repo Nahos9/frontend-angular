@@ -12,6 +12,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeComponent } from './employe/employe.component';
+import { UpdateClientComponent } from './update-client/update-client.component';
 
 
 
@@ -26,6 +27,7 @@ import { EmployeComponent } from './employe/employe.component';
     TopbarComponent,
     HomeComponent,
     EmployeComponent,
+    UpdateClientComponent,
 
   ],
   imports: [

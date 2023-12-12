@@ -13,6 +13,7 @@ export class ClientsComponent implements OnInit {
   clients : any = []
   access_token : any =undefined
   formClient! : FormGroup 
+  clientEdit!: any
 
   constructor(private clientService:ClientService,private fb:FormBuilder,private router:Router) { }
 
@@ -62,7 +63,8 @@ export class ClientsComponent implements OnInit {
 
   editClient(client:any)
   {
-    this.formClient = this.fb.group(
+    this.clientEdit = client
+   /* this.formClient = this.fb.group(
       {
         firstname:this.fb.control(client.firstname),
         lastname:this.fb.control(client.lastname),
@@ -72,7 +74,7 @@ export class ClientsComponent implements OnInit {
         phone:this.fb.control(client.phone),
         job:this.fb.control(client.job),
       }
-    )
+    )*/
   }
 
   handleUpadet(client:any)

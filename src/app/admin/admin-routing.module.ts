@@ -8,12 +8,14 @@ import { CertificationsComponent } from './certifications/certifications.compone
 import { AuthenticationGuard } from '../gaurds/authentication.guard';
 import { HomeComponent } from './home/home.component';
 import { EmployeComponent } from './employe/employe.component';
+import { UpdateClientComponent } from './update-client/update-client.component';
 
 
 const routes: Routes = [
   { path: '', component: AdminComponent,children:[
     {path:'',component:HomeComponent},
     {path:'clients',component:ClientsComponent},
+    {path:'clients/:id',component:UpdateClientComponent},
     {path:'partenaires',component:PartenairesComponent},
     {path:'formations',component:FormationsComponent},
     {path:'certifications',component:CertificationsComponent},
