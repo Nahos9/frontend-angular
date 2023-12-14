@@ -7,6 +7,11 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
 
 
 @NgModule({
@@ -20,6 +25,9 @@ import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+
+ 
   ],
 
   providers: [

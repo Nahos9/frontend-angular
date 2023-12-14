@@ -48,12 +48,12 @@ export class ClientsComponent implements OnInit {
   {
   
     document.getElementById('close-modal')?.click()
+
     this.clientService.saveClient(this.formClient.value)
     .subscribe({
       next:resp=>{
        console.log(resp)
-       this.formClient.reset
-       
+       this.formClient.reset()
        this.handleGetClients()
       },error:error=>{
         console.log(error)
@@ -83,6 +83,20 @@ export class ClientsComponent implements OnInit {
     .subscribe({
       next:resp=>{
         console.log(resp)
+      },error:error=>{
+        console.log(error)
+      }
+    })
+  }
+
+  handleDelete(clientId:number)
+  {
+    return this.clientService.deleteClient(clientId)
+    .subscribe({
+      next:resp=>{
+        console.log(resp)
+        confirm("Vous levez vraiment supprimer ce client?")
+        this.handleGetClients()
       },error:error=>{
         console.log(error)
       }

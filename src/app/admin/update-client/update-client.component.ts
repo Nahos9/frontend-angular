@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class UpdateClientComponent implements OnInit {
 
   clientId:number = this.activeRoute.snapshot.params["id"]
   editForm!: FormGroup
-  constructor(private activeRoute:ActivatedRoute,private serviceClient:ClientService,private fb:FormBuilder) { }
+  client!:any
+  constructor(private activeRoute:ActivatedRoute,private serviceClient:ClientService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
     this.editForm = this.fb.group(
@@ -26,6 +27,7 @@ export class UpdateClientComponent implements OnInit {
         job:this.fb.control(''),
       }
     )
+
     this.getOneClient()
 
   }
@@ -35,8 +37,8 @@ export class UpdateClientComponent implements OnInit {
     return this.serviceClient.getOneClient(this.clientId)
     .subscribe({
       next:data=>{
-        console.log(data)
         this.editForm.patchValue(data)
+        this.client = data
       },error:error=>{
         console.log(error)
       }
@@ -45,13 +47,22 @@ export class UpdateClientComponent implements OnInit {
 
   handleUpdate()
   {
-    this.serviceClient.updateClient(this.clientId,this.editForm)
+   /* let Form = JSON.stringify(this.editForm.value);*/
+  
+    this.serviceClient.updateClient(this.clientId,this.editForm.value)
     .subscribe({
       next:data=>{
-        console.log(data)
+
+        setTimeout(
+          ()=>{
+            this.router.navigate(["/admin/clients"])
+          },1500
+         )
       },error:error=>{
         console.log(error)
       }
     })
   }
+
+
 }

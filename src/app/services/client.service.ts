@@ -9,6 +9,7 @@ import { Client } from '../models/Client';
 export class ClientService {
 
   BASE_URL = "http://localhost:9000/apiV1/"
+
   URL = "http://localhost:9000/api/"
 
   constructor(private http:HttpClient) { }
@@ -17,7 +18,7 @@ export class ClientService {
   {
     return this.http.get<any>(`${this.URL}clients`)
   }
-  
+
   saveClient(client:any):Observable<any>{
     console.log("service",client)
     return this.http.post(`${this.URL}employe`,client)
@@ -29,16 +30,25 @@ export class ClientService {
   {
     return this.http.post(`${this.URL}employe`,emp)
   }
-
+/*
   updateClient(clientId:number,emp:any):Observable<any>
   {
     return this.http.put(`${this.URL}clients/${clientId}`,emp)
   }
+*/
 
+updateClient(id:number,client?:any):Observable<any>
+{
+  return this.http.put(`${this.URL}clients/${id}`,client)
+}
   getOneClient(id:number):Observable<any>
   {
     return this.http.get(`${this.URL}clients/${id}`)
   }
 
+  deleteClient(id:number)
+  {
+    return this.http.delete(`${this.URL}clients/${id}`)
+  }
  
 }

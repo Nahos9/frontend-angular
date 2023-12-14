@@ -1,1 +1,18 @@
-<p>formations works!</p>
+<div class="row mx-0 mt-2">
+    <div class="row justify-content-end mx-0 mb-2">
+        <div class="col-md-4 d-flex justify-content-end">
+            <button class="btn btn-primary" routerLink="/admin/add-formation">Ajouter une formation <i class="bi bi-plus-circle"></i></button>
+        </div>
+    </div>
+    <div class="col-md-4" *ngFor="let forma of formations">
+        <div class="card">
+            <div class="card-body">
+                <img src="../../../assets/image1.jpeg" alt="" style="height: 400px;width: 100%; border-radius: 10px;">
+            </div>
+            <div class="card-footer d-flex justify-content-center" >
+                <i class="bi bi-journal-plus"></i>
+                <i class="bi bi-x-circle" (click)="handleDelete(forma.id)"></i>
+            </div>
+        </div>
+    </div>
+</div>

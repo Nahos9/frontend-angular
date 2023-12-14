@@ -1,7 +1,7 @@
 <div class="row">
-    <p>Modifier </p>
+    <p>Modifier {{client.firstname}}</p>
     <div class="col-md-6 offset-md-3">
-        <form   [formGroup]="editForm" >
+        <form  (submit)="handleUpdate()"  [formGroup]="editForm" >
             <div class="mb-3">
                 <label for="firstname">Firstname</label>
                 <input type="text" id="firstname" class="form-control" name="firstname" formControlName="firstname" >

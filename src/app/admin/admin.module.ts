@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeComponent } from './employe/employe.component';
 import { UpdateClientComponent } from './update-client/update-client.component';
+import { AddFormationComponent } from './add-formation/add-formation.component';
+
+
 
 
 
@@ -28,12 +31,16 @@ import { UpdateClientComponent } from './update-client/update-client.component';
     HomeComponent,
     EmployeComponent,
     UpdateClientComponent,
+    AddFormationComponent,
 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
+    
+
   ]
 })
 export class AdminModule { }

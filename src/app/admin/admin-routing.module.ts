@@ -9,6 +9,7 @@ import { AuthenticationGuard } from '../gaurds/authentication.guard';
 import { HomeComponent } from './home/home.component';
 import { EmployeComponent } from './employe/employe.component';
 import { UpdateClientComponent } from './update-client/update-client.component';
+import { AddFormationComponent } from './add-formation/add-formation.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path:'clients/:id',component:UpdateClientComponent},
     {path:'partenaires',component:PartenairesComponent},
     {path:'formations',component:FormationsComponent},
+    {path:'add-formation',component:AddFormationComponent},
     {path:'certifications',component:CertificationsComponent},
     {path:'employes',component:EmployeComponent}
   ] }

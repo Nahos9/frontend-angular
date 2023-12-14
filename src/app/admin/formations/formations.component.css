@@ -1,0 +1,16 @@
+img{
+    width: 100% !important;
+    height: 300px !important;
+}
+.card-footer i{
+    font-size: 1.9rem !important;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.card-footer i:hover{
+    color: rgb(115, 133, 132);
+}
+.card{
+    box-shadow: 12px 12px 2px 1px rgba(162, 162, 184, 0.2);
+}
